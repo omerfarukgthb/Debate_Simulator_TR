@@ -1,0 +1,6 @@
+{
+  "name": "Münazara Koçu",
+  "description": "Ortaokul öğrencileri için münazara yarışması hazırlık, argüman analizi ve interaktif jüri/koç uygulaması.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
