@@ -302,7 +302,7 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
               <Swords className={`w-6 h-6 ${accentColor}`} />
             </div>
             <h2 className="font-display text-2xl font-black tracking-tight text-slate-800">İnteraktif Münazara Düellosu</h2>
-            <p className={`${textMutedClass} text-xs mt-1.5 leading-relaxed`}>
+            <p className={`${textMutedClass} text-sm mt-2 leading-relaxed`}>
               Yapay zekalı rakibinle karşı karşıya gelip tezlerini savunacağın gerçek münazara simülatörü! 
               Sen argümanını sunarken, bilge koçun arkadan sana zayıf halkaları fısıldayacak.
             </p>
@@ -311,7 +311,7 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
           <div className="space-y-5">
             {/* Quick-tap Character profile instead of username input */}
             <div>
-              <label className={`block text-xs font-bold ${labelClass} mb-2 uppercase tracking-wider`}>
+              <label className={`block text-sm font-bold ${labelClass} mb-2.5 uppercase tracking-wider`}>
                 Münazaracı Kimliğin (Profilini Dokunarak Seç)
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
@@ -330,8 +330,8 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
                     }`}
                   >
                     <span className="text-2xl" role="img" aria-label={p.name}>{p.emoji}</span>
-                    <span className="text-[10px] font-extrabold text-center leading-tight whitespace-nowrap">{p.label}</span>
-                    <span className="text-[8px] text-slate-400 font-medium text-center italic hidden sm:block">{p.motto}</span>
+                    <span className="text-xs font-extrabold text-center leading-tight">{p.label}</span>
+                    <span className="text-[10px] text-slate-400 font-medium text-center italic hidden sm:block">{p.motto}</span>
                   </button>
                 ))}
               </div>
@@ -339,13 +339,13 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
 
             {/* Topic choose */}
             <div>
-              <label className={`block text-xs font-bold ${labelClass} mb-1.5 uppercase tracking-wider`}>Münazara Konusu Seçeceği</label>
+              <label className={`block text-sm font-bold ${labelClass} mb-2 uppercase tracking-wider`}>Münazara Konusu</label>
               <div className="flex gap-2 mb-2">
                 <button
                   id="tab-duel-predefined"
                   onClick={() => setIsCustomTopic(false)}
-                  className={`flex-1 py-1 px-3 rounded text-xs font-bold border transition-all cursor-pointer ${
-                    !isCustomTopic ? "border-amber-600 bg-amber-50 text-amber-700" : "border-slate-200 text-slate-500"
+                  className={`flex-1 py-1.5 px-3 rounded text-sm font-bold border transition-all cursor-pointer ${
+                    !isCustomTopic ? "border-amber-600 bg-amber-50 text-amber-700 font-extrabold" : "border-slate-200 text-slate-500 hover:bg-slate-50"
                   }`}
                 >
                   Hazır Konular
@@ -353,8 +353,8 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
                 <button
                   id="tab-duel-custom"
                   onClick={() => setIsCustomTopic(true)}
-                  className={`flex-1 py-1 px-3 rounded text-xs font-bold border transition-all cursor-pointer ${
-                    isCustomTopic ? "border-amber-600 bg-amber-50 text-amber-700" : "border-slate-200 text-slate-500"
+                  className={`flex-1 py-1.5 px-3 rounded text-sm font-bold border transition-all cursor-pointer ${
+                    isCustomTopic ? "border-amber-600 bg-amber-50 text-amber-700 font-extrabold" : "border-slate-200 text-slate-500 hover:bg-slate-50"
                   }`}
                 >
                   Kendi Konum
@@ -366,7 +366,7 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
                   id="duel-topic-select"
                   value={selectedTopicId}
                   onChange={(e) => setSelectedTopicId(e.target.value)}
-                  className={`w-full text-xs p-2.5 rounded-lg border bg-slate-50 text-slate-700 font-medium focus:outline-none focus:ring-1 focus:ring-amber-500 cursor-pointer`}
+                  className={`w-full text-sm p-2.5 rounded-lg border bg-slate-50 text-slate-700 font-medium focus:outline-none focus:ring-1 focus:ring-amber-500 cursor-pointer`}
                 >
                   {PREDEFINED_TOPICS.map((topic) => (
                     <option key={topic.id} value={topic.id}>
@@ -381,7 +381,7 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
                   placeholder="Kendi münazara konunu buraya yaz sınırsız!"
                   value={customTopicTitle}
                   onChange={(e) => setCustomTopicTitle(e.target.value)}
-                  className={`w-full text-xs p-2.5 rounded-lg border ${inputClass} focus:outline-none`}
+                  className={`w-full text-sm p-2.5 rounded-lg border ${inputClass} focus:outline-none`}
                 />
               )}
             </div>
@@ -390,43 +390,43 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Position */}
               <div>
-                <label className={`block text-xs font-bold ${labelClass} mb-1.5 uppercase tracking-wider`}>Tarafın</label>
+                <label className={`block text-sm font-bold ${labelClass} mb-2 uppercase tracking-wider`}>Tarafın</label>
                 <div className="grid grid-cols-2 gap-2">
                   <button
                     id="duel-btn-pro"
                     onClick={() => setUserPosition("pro")}
-                    className={`p-2.5 rounded-lg text-xs font-bold flex flex-col items-center justify-center border transition-all cursor-pointer ${
+                    className={`p-2.5 rounded-lg text-sm font-bold flex flex-col items-center justify-center border transition-all cursor-pointer ${
                       userPosition === "pro"
                         ? "border-emerald-600 bg-emerald-50 text-emerald-800 ring-1 ring-emerald-500"
                         : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
                     }`}
                   >
-                    <span className="font-semibold text-xs text-center block">TEZ</span>
-                    <span className="text-[9px] font-normal text-slate-400 block mt-0.5">Destekliyorum</span>
+                    <span className="font-extrabold text-sm text-center block">TEZ</span>
+                    <span className="text-xs font-normal text-slate-400 block mt-0.5">Destekliyorum</span>
                   </button>
                   <button
                     id="duel-btn-con"
                     onClick={() => setUserPosition("con")}
-                    className={`p-2.5 rounded-lg text-xs font-bold flex flex-col items-center justify-center border transition-all cursor-pointer ${
+                    className={`p-2.5 rounded-lg text-sm font-bold flex flex-col items-center justify-center border transition-all cursor-pointer ${
                       userPosition === "con"
                         ? "border-red-600 bg-red-50 text-red-800 ring-1 ring-red-500"
                         : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
                     }`}
                   >
-                    <span className="font-semibold text-xs text-center block">ANTİTEZ</span>
-                    <span className="text-[9px] font-normal text-slate-400 block mt-0.5">Karşı çıkıyorum</span>
+                    <span className="font-extrabold text-sm text-center block">ANTİTEZ</span>
+                    <span className="text-xs font-normal text-slate-400 block mt-0.5">Karşı çıkıyorum</span>
                   </button>
                 </div>
               </div>
 
               {/* Difficulty */}
               <div>
-                <label htmlFor="difficulty-select" className={`block text-xs font-bold ${labelClass} mb-1.5 uppercase tracking-wider`}>Seviye/Zorluk</label>
+                <label htmlFor="difficulty-select" className={`block text-sm font-bold ${labelClass} mb-2 uppercase tracking-wider`}>Seviye/Zorluk</label>
                 <select
                   id="difficulty-select"
                   value={difficulty}
                   onChange={(e: any) => setDifficulty(e.target.value)}
-                  className={`w-full text-xs p-2.5 rounded-lg border bg-slate-50 text-slate-700 font-medium focus:outline-none focus:ring-1 focus:ring-amber-500 cursor-pointer`}
+                  className={`w-full text-sm p-2.5 rounded-lg border bg-slate-50 text-slate-700 font-medium focus:outline-none focus:ring-1 focus:ring-amber-500 cursor-pointer`}
                 >
                   <option value="Başlangıç">Başlangıç Seviyesi (Yumuşak Çürütmeler)</option>
                   <option value="Orta">Orta Seviye (Detaylı Sorgulama)</option>
@@ -438,19 +438,19 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
 
             {/* Helper arguments preview */}
             {!isCustomTopic && currentTopicData && (
-              <div className="bg-slate-50 p-3 rounded-lg border border-slate-200 text-xs text-slate-500">
-                <span className="font-bold text-slate-600 uppercase block mb-1 tracking-wider text-[10px]">Bilgi Kartı Ön Okuma:</span>
-                <p className="leading-relaxed mb-2">{currentTopicData.description}</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2 pt-2 border-t border-slate-200/50">
+              <div className="bg-slate-50 p-3.5 rounded-lg border border-slate-200 text-sm text-slate-600">
+                <span className="font-bold text-slate-700 uppercase block mb-1.5 tracking-wider text-xs">Bilgi Kartı Ön Okuma:</span>
+                <p className="leading-relaxed mb-3">{currentTopicData.description}</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2.5 pt-2.5 border-t border-slate-200/50">
                   <div>
-                    <strong className="text-emerald-700 block font-semibold mb-1">Tez (Evet) Savunmaları:</strong>
-                    <ul className="list-disc pl-4 space-y-0.5 text-[11px] font-serif italic">
+                    <strong className="text-emerald-700 block font-bold mb-1">Tez (Evet) Savunmaları:</strong>
+                    <ul className="list-disc pl-4 space-y-1 text-xs font-serif leading-relaxed italic text-slate-650">
                       {currentTopicData.proArguments.map((a, i) => <li key={i}>{a}</li>)}
                     </ul>
                   </div>
                   <div>
-                    <strong className="text-red-700 block font-semibold mb-1">Antitez (Hayır) Savunmaları:</strong>
-                    <ul className="list-disc pl-4 space-y-0.5 text-[11px] font-serif italic">
+                    <strong className="text-red-700 block font-bold mb-1">Antitez (Hayır) Savunmaları:</strong>
+                    <ul className="list-disc pl-4 space-y-1 text-xs font-serif leading-relaxed italic text-slate-650">
                       {currentTopicData.conArguments.map((a, i) => <li key={i}>{a}</li>)}
                     </ul>
                   </div>
@@ -459,7 +459,7 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
             )}
 
             {errorMsg && (
-              <div className="bg-red-50 text-red-700 text-xs p-3 rounded-lg border border-red-200 flex items-center gap-1.5 leading-relaxed">
+              <div className="bg-red-50 text-red-700 text-sm p-3 rounded-lg border border-red-200 flex items-center gap-1.5 leading-relaxed">
                 <AlertCircle className="w-4 h-4 shrink-0" />
                 <span>{errorMsg}</span>
               </div>
@@ -469,7 +469,7 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
             <button
               id="btn-start-duel"
               onClick={handleStartDebate}
-              className={`w-full ${btnPrimary} font-bold py-3 rounded-xl text-sm transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01]`}
+              className={`w-full ${btnPrimary} font-bold py-3.5 rounded-xl text-sm transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.01]`}
             >
               <Play className="w-4 h-4" />
               <span>Münazara Düellosunu Başlat!</span>
@@ -488,8 +488,8 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
               {/* Active Debate Header */}
               <div className="bg-slate-900 text-white px-5 py-3 flex justify-between items-center shrink-0">
                 <div className="space-y-0.5">
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400">Canlı Karşılaşma (Tur {activeDebate.roundNumber})</span>
-                  <h3 className="font-display font-black text-sm text-slate-100 truncate max-w-lg">{activeDebate.topic.title}</h3>
+                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400">Canlı Karşılaşma (Tur {activeDebate.roundNumber})</span>
+                  <h3 className="font-display font-black text-base text-slate-100 truncate max-w-lg">{activeDebate.topic.title}</h3>
                 </div>
                 <button
                   id="btn-back-to-setup"
@@ -499,7 +499,7 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
                       setVerdictResult(null);
                     }
                   }}
-                  className="text-xs bg-slate-800 hover:bg-slate-700/80 text-slate-300 font-bold px-3 py-1.5 rounded-lg flex items-center gap-1 transition-all cursor-pointer"
+                  className="text-sm bg-slate-800 hover:bg-slate-700/80 text-slate-300 font-bold px-3 py-1.5 rounded-lg flex items-center gap-1 transition-all cursor-pointer"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" />
                   <span>Çıkış</span>
@@ -512,7 +512,7 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
                   if (msg.sender === "system") {
                     return (
                       <div id={`msg-${msg.id}`} key={msg.id} className="text-center">
-                        <span className="inline-block bg-slate-200/80 text-slate-700 px-3 py-1 rounded-full text-[10px] font-bold border border-slate-300">
+                        <span className="inline-block bg-slate-200/80 text-slate-700 px-3 py-1 rounded-full text-xs font-extrabold border border-slate-300">
                           {msg.text}
                         </span>
                       </div>
@@ -526,13 +526,13 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
                       key={msg.id}
                       className={`flex ${isUser ? "justify-end" : "justify-start"}`}
                     >
-                      <div className={`max-w-[85%] rounded-2xl p-3.5 shadow-sm text-xs leading-relaxed ${
+                      <div className={`max-w-[85%] rounded-2xl p-3.5 shadow-sm text-sm leading-relaxed ${
                         isUser 
                           ? `${btnPrimary} rounded-tr-none text-white` 
                           : "bg-white text-slate-800 border border-slate-200 rounded-tl-none"
                       }`}>
                         {/* Name header inside message */}
-                        <div className="flex justify-between items-center mb-1.5 pb-1 border-b border-white/10 text-[10px] opacity-75">
+                        <div className="flex justify-between items-center mb-1.5 pb-1 border-b border-white/10 text-xs opacity-75">
                           <strong className="font-bold flex items-center gap-1 font-mono uppercase">
                             <User className="w-3 h-3" />
                             {isUser ? (studentName || "Münazaracı") : `Rakip (${difficulty})`}
@@ -554,7 +554,7 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
                         <span className="w-2.5 h-2.5 bg-amber-600 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
                         <span className="w-2.5 h-2.5 bg-amber-600 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
                       </div>
-                      <span className="text-[11px] text-slate-500 font-medium font-mono">Rakip çürütücü hamlesini yazıyor...</span>
+                      <span className="text-xs text-slate-500 font-semibold font-mono">Rakip çürütücü hamlesini yazıyor...</span>
                     </div>
                   </div>
                 )}
@@ -578,7 +578,7 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
                         }
                       }}
                       placeholder="Buraya tezini, savını veya karşı çürütmeni yaz ve Gönder..."
-                      className="flex-1 p-2.5 border border-slate-200 rounded-xl text-xs bg-slate-50/50 resize-none focus:outline-none focus:ring-1 focus:ring-amber-500 max-h-24 min-h-[42px]"
+                      className="flex-1 p-2.5 border border-slate-200 rounded-xl text-sm bg-slate-50/50 resize-none focus:outline-none focus:ring-1 focus:ring-amber-500 max-h-24 min-h-[42px]"
                     />
                     <button
                       id="btn-send-duel-msg"
@@ -591,14 +591,14 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
                   </div>
 
                   <div className="flex justify-between items-center mt-2 pt-2 border-t border-slate-100">
-                    <span className="text-[10px] text-slate-400">İpucu: Söylediklerini sağlam bir gerekçe (neden) ve kanıta bağla!</span>
+                    <span className="text-xs font-semibold text-slate-550">İpucu: Söylediklerini sağlam bir gerekçe (neden) ve kanıta bağla!</span>
                     <button
                       id="btn-jury-verdict"
                       onClick={handleEndDebateAndGetVerdict}
                       disabled={loadingTurn || loadingJury || activeDebate.messages.length < 3}
-                      className="text-[11px] bg-red-600 hover:bg-red-700 text-white font-black py-1 px-3 rounded-lg border border-red-500 shadow-sm transition-all flex items-center gap-1 cursor-pointer"
+                      className="text-xs bg-red-600 hover:bg-red-700 text-white font-black py-1.5 px-3 rounded-lg border border-red-500 shadow-sm transition-all flex items-center gap-1.5 cursor-pointer animate-pulse"
                     >
-                      <Award className="w-3.5 h-3.5" />
+                      <Award className="w-4 h-4" />
                       <span>Jüriden Resmi Karar Talebi 📜</span>
                     </button>
                   </div>
@@ -608,7 +608,7 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
 
             {/* Error banner */}
             {errorMsg && (
-              <div className="bg-red-50 text-red-700 text-xs p-3 rounded-lg border border-red-200 flex items-center gap-1.5 leading-relaxed">
+              <div className="bg-red-50 text-red-700 text-sm p-3 rounded-lg border border-red-200 flex items-center gap-1.5 leading-relaxed">
                 <AlertCircle className="w-4 h-4 shrink-0" />
                 <span>{errorMsg}</span>
               </div>
@@ -619,7 +619,7 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
               <div className="bg-white rounded-xl p-10 border border-slate-200 shadow-sm flex flex-col items-center justify-center text-center">
                 <Award className="w-12 h-12 text-red-600 animate-spin mb-3" />
                 <h4 className="font-display font-bold text-base text-slate-800">Jüri Değerlendirme Komitesi Toplanıyor ⚖️</h4>
-                <p className="text-slate-500 text-xs max-w-md mt-2 leading-relaxed">
+                <p className="text-slate-600 text-sm max-w-md mt-2 leading-relaxed">
                   Bağlantılı jüri heyetimiz, sunduğunuz argümanların kelime dökümünü, mantıksal çıkmazları ve ikna ritimlerini en baştan okuyor. Kazananı belirlemek için son oylama yapılıyor, lütfen sayfayı kapatmayın...
                 </p>
               </div>
@@ -635,12 +635,12 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
                 {/* Royal Jury Header */}
                 <div className="text-center pb-5 border-b-2 border-dashed border-amber-600/20">
                   <div className="inline-block bg-amber-600/10 border border-amber-500 rounded-full py-1 px-3 mb-2">
-                    <span className="font-mono text-[9px] font-bold text-amber-700 uppercase tracking-widest flex items-center gap-1">
-                      <Trophy className="w-3 h-3 text-amber-600 animate-bounce" />
+                    <span className="font-mono text-xs font-bold text-amber-700 uppercase tracking-widest flex items-center gap-1">
+                      <Trophy className="w-3.5 h-3.5 text-amber-600 animate-bounce" />
                       Münazara Jürisi Gerekçeli Karar Belgesi
                     </span>
                   </div>
-                  <h3 className="font-display font-black text-2xl text-slate-800 tracking-tight mt-1">RESMÎ SEÇİM KARARI VE BEYANNAMESİ</h3>
+                  <h3 className="font-display font-black text-3xl text-slate-800 tracking-tight mt-1">RESMÎ SEÇİM KARARI VE BEYANNAMESİ</h3>
                 </div>
 
                 {/* Performance Dials */}
@@ -648,7 +648,7 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
                   {/* Student */}
                   <div id="jury-student-score" className="bg-white rounded-xl p-4 border border-slate-200 shadow-sm text-center flex flex-col justify-center items-center">
                     <Award className="w-8 h-8 text-amber-600 mb-1" />
-                    <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Metrik Performans Puanın</span>
+                    <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Metrik Performans Puanın</span>
                     <div className="text-4xl font-display font-black text-slate-800 mt-1">
                       {verdictResult.userScore}
                       <span className="text-lg text-slate-400 font-normal">/100</span>
@@ -661,7 +661,7 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
                   {/* Opponent */}
                   <div id="jury-opponent-score" className="bg-white rounded-xl p-4 border border-slate-200 shadow-sm text-center flex flex-col justify-center items-center">
                     <Award className="w-8 h-8 text-indigo-600 mb-1" />
-                    <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Rakip Performans Puanı</span>
+                    <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Rakip Performans Puanı</span>
                     <div className="text-4xl font-display font-black text-slate-800 mt-1">
                       {verdictResult.opponentScore}
                       <span className="text-lg text-slate-400 font-normal">/100</span>
@@ -678,23 +678,23 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
                   <div className="bg-amber-600 text-white rounded-xl p-4 shadow-inner flex gap-3 items-center">
                     <Trophy className="w-8 h-8 shrink-0 text-yellow-300 animate-pulse" />
                     <div>
-                      <strong className="text-[10px] font-mono text-amber-200 uppercase tracking-widest font-bold">Resmî Gerekçe Özeti</strong>
-                      <p className="font-serif font-black text-sm mt-0.5 leading-relaxed">{verdictResult.finalVerdictSummary}</p>
+                      <strong className="text-xs font-mono text-amber-200 uppercase tracking-widest font-bold">Resmî Gerekçe Özeti</strong>
+                      <p className="font-serif font-black text-base mt-0.5 leading-relaxed">{verdictResult.finalVerdictSummary}</p>
                     </div>
                   </div>
 
                   {/* Full Jury explanation report */}
                   <div className="bg-white rounded-xl p-4 border border-slate-200 shadow-sm space-y-2">
-                    <strong className="text-slate-800 text-xs font-bold font-mono uppercase tracking-wider block">Gerekçeli Mahkeme Raporu:</strong>
-                    <p className="text-slate-600 text-xs font-serif leading-relaxed whitespace-pre-line">{verdictResult.juryVerdict}</p>
+                    <strong className="text-slate-800 text-sm font-bold font-mono uppercase tracking-wider block">Gerekçeli Mahkeme Raporu:</strong>
+                    <p className="text-slate-650 text-sm font-serif leading-relaxed whitespace-pre-line">{verdictResult.juryVerdict}</p>
                   </div>
 
                   {/* 3 takeaways */}
                   <div className="bg-slate-100/80 rounded-xl p-4 border border-slate-200">
-                    <strong className="text-slate-800 text-xs font-extrabold uppercase tracking-wider block mb-2.5">💡 Cebindeki 3 Altın Taktik (Gelişim Notları):</strong>
+                    <strong className="text-slate-800 text-sm font-extrabold uppercase tracking-wider block mb-2.5">💡 Cebindeki 3 Altın Taktik (Gelişim Notları):</strong>
                     <ul className="space-y-2">
                       {verdictResult.learningTakeaways.map((takeaway, idx) => (
-                        <li key={idx} className="text-xs text-slate-600 flex gap-2 items-start leading-relaxed">
+                        <li key={idx} className="text-sm text-slate-700 flex gap-2 items-start leading-relaxed">
                           <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                           <span>{takeaway}</span>
                         </li>
@@ -709,7 +709,7 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
                       setActiveDebate(null);
                       setVerdictResult(null);
                     }}
-                    className="w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-2.5 rounded-xl text-xs transition-all shadow flex items-center justify-center gap-1.5 cursor-pointer mt-4"
+                    className="w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 rounded-xl text-sm transition-all shadow flex items-center justify-center gap-1.5 cursor-pointer mt-4"
                   >
                     <RotateCcw className="w-4 h-4" />
                     <span>Münazara Karşılaşmasını Kapat ve Yeni Düello Kur!</span>
@@ -734,22 +734,22 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
                   <span className="absolute bottom-0 right-0 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white"></span>
                 </div>
                 <h4 className="font-display font-extrabold text-sm text-slate-800">Bilge Koç Köşesi</h4>
-                <p className="text-[10px] text-slate-400 font-medium">Büyük Karşılaşma Yardımcın • Aktif Dinleme Modu</p>
+                <p className="text-xs text-slate-400 font-medium">Büyük Karşılaşma Yardımcın • Aktif Dinleme Modu</p>
               </div>
 
               {/* Coach Whispering box */}
               <div className="bg-amber-50/40 p-3.5 rounded-xl border border-amber-100 shadow-inner">
-                <span className="text-[10px] font-mono font-bold text-amber-700 uppercase tracking-widest block mb-1">Gizli Fısıltı / Strateji yardımı</span>
-                <p className="text-slate-700 text-xs italic leading-relaxed whitespace-pre-line">
+                <span className="text-xs font-mono font-bold text-amber-700 uppercase tracking-widest block mb-1">Gizli Fısıltı / Strateji yardımı</span>
+                <p className="text-slate-750 text-sm italic leading-relaxed whitespace-pre-line">
                   "{coachAdvice}"
                 </p>
               </div>
 
               {/* Recommended structure alert card */}
-              <div className="bg-slate-50 rounded-lg p-3 border border-slate-150 text-[11px] text-slate-500 space-y-1">
-                <h5 className="font-bold text-slate-700 uppercase tracking-wider text-[9px]">İdeal Sağlam Şablon (İ-D-K):</h5>
-                <p className="text-slate-600">Başarılı bir münazaracı argümanını 3 adımda yazar:</p>
-                <ul className="list-disc pl-4 space-y-0.5 mt-1">
+              <div className="bg-slate-50 rounded-lg p-3.5 border border-slate-150 text-xs text-slate-650 space-y-1">
+                <h5 className="font-bold text-slate-700 uppercase tracking-wider text-xs mb-1">İdeal Sağlam Şablon (İ-D-K):</h5>
+                <p className="text-slate-650 leading-relaxed text-xs">Başarılı bir münazaracı argümanını 3 adımda yazar:</p>
+                <ul className="list-disc pl-4 space-y-1 mt-1 text-xs">
                   <li><strong>İddia:</strong> Neyi savunuyorsun?</li>
                   <li><strong>Gerekçe:</strong> Neden bu doğru? Mantığı ne?</li>
                   <li><strong>Kanıt:</strong> Hangi veri, istatistik veya gözlem bunu destekliyor?</li>
@@ -757,9 +757,9 @@ export default function DebateDuel({ themeId = "classic" }: DebateDuelProps) {
               </div>
 
               {/* Quick instructions cheat sheet */}
-              <div className="bg-indigo-50/30 p-3 rounded-lg border border-indigo-100 text-[10px] text-indigo-700 space-y-1">
-                <strong className="font-bold uppercase text-[9px] tracking-wider block">⚠️ Jürinin Sevmediği Şeyler (Ceza Puanı Alırsın!):</strong>
-                <ul className="list-disc pl-3.5 space-y-0.5">
+              <div className="bg-indigo-50/30 p-3.5 rounded-lg border border-indigo-100 text-xs text-indigo-700 space-y-1">
+                <strong className="font-bold uppercase text-xs tracking-wider block mb-1">⚠️ Jürinin Sevmediği Şeyler (Ceza Puanı Alırsın!):</strong>
+                <ul className="list-disc pl-3.5 space-y-1 text-xs">
                   <li>Rakibe ve kişiliğine laf atmak (Ad Hominem)</li>
                   <li>Kanıt sunmadan sadece 'bence öyle' deyip geçmek</li>
                   <li>"Herkes biliyor ki..." gibi genellemeler yapmak</li>

@@ -175,7 +175,7 @@ export default function FallacyGuide({ themeId }: FallacyGuideProps) {
             <BookOpen className={`${accentColor} w-5 h-5 animate-pulse`} />
             <span className={`font-mono text-xs ${accentColor} font-bold uppercase tracking-wider`}>Münazara Teorisi</span>
           </div>
-          <h2 className="font-display text-2xl font-bold tracking-tight">Safsata (Mantık Hatası) Nedir?</h2>
+          <h2 className="font-display text-2xl font-extrabold tracking-tight">Safsata (Mantık Hatası) Nedir?</h2>
           <p className={`${textMutedClass} text-sm mt-2 leading-relaxed`}>
             Münazarada haklı çıkmaya çalışırken en sık düşülen tuzaklar, kulağa ikna edici gelse de <b>mantıksal olarak hatalı</b> olan iddialardır. 
             Jüriler bu hataları hemen fark eder ve puan kırar! Bunları öğrenerek hem kendi argümanlarını temiz tut, hem de rakibinin açıklarını jüriye göster.
@@ -201,13 +201,13 @@ export default function FallacyGuide({ themeId }: FallacyGuideProps) {
                   {fallacy.icon}
                 </span>
                 <div>
-                  <h3 className="font-display font-black text-sm flex items-center gap-1.5 focus:outline-none">
+                  <h3 className="font-display font-extrabold text-sm flex items-center gap-1.5 focus:outline-none">
                     {fallacy.name}
                   </h3>
-                  <span className="text-[10px] font-mono text-slate-400 block mt-0.5">
+                  <span className="text-xs font-mono font-bold text-slate-400 block mt-0.5">
                     {fallacy.englishName}
                   </span>
-                  <p className={`${textMutedClass} text-xs mt-1.5 line-clamp-2 leading-relaxed`}>
+                  <p className={`${textMutedClass} text-xs mt-2 leading-relaxed font-semibold`}>
                     {fallacy.description}
                   </p>
                 </div>
@@ -230,50 +230,50 @@ export default function FallacyGuide({ themeId }: FallacyGuideProps) {
                 <div className="flex items-center gap-2">
                   <span className="text-2xl">{selectedFallacy.icon}</span>
                   <div>
-                    <h3 className="font-display font-bold text-base">{selectedFallacy.name}</h3>
-                    <span className="text-xs font-mono text-amber-600">{selectedFallacy.englishName}</span>
+                    <h3 className="font-display font-black text-base">{selectedFallacy.name}</h3>
+                    <span className="text-xs font-mono text-amber-600 font-bold">{selectedFallacy.englishName}</span>
                   </div>
                 </div>
                 <button 
                   onClick={() => setSelectedFallacy(null)}
-                  className="text-xs text-slate-400 hover:text-slate-600 underline font-mono cursor-pointer"
+                  className="text-xs text-slate-500 hover:text-slate-755 underline font-mono cursor-pointer font-bold"
                 >
                   Kapat
                 </button>
               </div>
 
-              <p className="text-sm mt-3 leading-relaxed opacity-95">
+              <p className="text-sm mt-3 leading-relaxed opacity-95 text-slate-700 font-medium">
                 {selectedFallacy.description}
               </p>
 
               <div className="mt-4 space-y-2.5">
-                <div className="bg-red-50/70 p-3 rounded-lg border border-red-100 flex gap-2.5 items-start text-slate-800">
+                <div className="bg-red-50/70 p-3.5 rounded-lg border border-red-105 flex gap-2.5 items-start text-slate-800">
                   <span className="text-lg">🤦🔴</span>
                   <div>
-                    <strong className="text-red-800 text-xs block font-bold">Safsata Tuzağı (Yapma!):</strong>
-                    <span className="text-slate-700 text-xs italic mt-0.5 block">{selectedFallacy.badScenario}</span>
+                    <strong className="text-red-800 text-xs block font-black">Safsata Tuzağı (Yapma!):</strong>
+                    <span className="text-slate-700 text-xs italic mt-1 block font-medium">{selectedFallacy.badScenario}</span>
                   </div>
                 </div>
 
-                <div className="bg-green-50/70 p-3 rounded-lg border border-green-100 flex gap-2.5 items-start text-slate-800">
+                <div className="bg-green-50/70 p-3.5 rounded-lg border border-green-105 flex gap-2.5 items-start text-slate-800">
                   <span className="text-lg">🎯🟢</span>
                   <div>
-                    <strong className="text-green-800 text-xs block font-bold">Doğru Strateji (Böyle Yap!):</strong>
-                    <span className="text-slate-700 text-xs mt-0.5 block">{selectedFallacy.goodAlternative}</span>
+                    <strong className="text-green-800 text-xs block font-black">Doğru Strateji (Böyle Yap!):</strong>
+                    <span className="text-slate-700 text-xs mt-1 block font-medium">{selectedFallacy.goodAlternative}</span>
                   </div>
                 </div>
 
-                <div className="bg-slate-100/80 p-3 rounded-lg border border-slate-200/60 flex gap-2.5 items-start text-slate-800">
+                <div className="bg-slate-100/80 p-3.5 rounded-lg border border-slate-200/60 flex gap-2.5 items-start text-slate-800">
                   <ShieldAlert className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-slate-850 text-xs block font-mono font-bold">Koçun Taktik Kartı:</strong>
-                    <span className="text-slate-600 text-xs mt-0.5 block leading-relaxed">{selectedFallacy.coachAdvice}</span>
+                    <strong className="text-slate-850 text-xs block font-mono font-black">Koçun Taktik Kartı:</strong>
+                    <span className="text-slate-650 text-xs mt-1 block leading-relaxed font-semibold">{selectedFallacy.coachAdvice}</span>
                   </div>
                 </div>
               </div>
             </motion.div>
           ) : (
-            <div className={`${cardClass} rounded-xl p-6 border text-center text-sm`}>
+            <div className={`${cardClass} rounded-xl p-6 border text-center text-sm font-bold text-slate-700`}>
               <Info className="w-8 h-8 mx-auto mb-2 text-slate-400" />
               Detayları incelemek, hatalı tuzakları ve koç çözüm önerilerini görmek için yukarıdaki safsatalardan birine tıkla!
             </div>
@@ -290,19 +290,19 @@ export default function FallacyGuide({ themeId }: FallacyGuideProps) {
                 <Sparkles className={`${accentColor} w-4 h-4`} />
                 <h3 className="font-display font-extrabold text-sm">Tuzak Avcısı Oyunu</h3>
               </div>
-              <span className="font-mono text-xs font-bold bg-slate-100/80 px-2 py-0.5 rounded-full text-slate-800">
+              <span className="font-mono text-sm font-bold bg-slate-100/80 px-2.5 py-1 rounded-full text-slate-800">
                 Doğru: {quizScore}/{QUIZ_QUESTIONS.length}
               </span>
             </div>
 
-            <p className={`${textMutedClass} text-xs mb-4 leading-relaxed`}>
+            <p className={`${textMutedClass} text-sm mb-4 leading-relaxed`}>
               Aşağıdaki cümle bir safsata tuzağı içeriyor. Bakalım hangi mantık hatası olduğunu bulabilecek misin dedektör?
             </p>
 
             {/* Current Question Block */}
             <div className="bg-slate-100/30 rounded-lg p-4 border border-slate-200/60 mb-4 text-center">
               <HelpCircle className="w-5 h-5 text-slate-400 mx-auto mb-2 animate-bounce" />
-              <p className="italic font-serif font-medium text-sm leading-relaxed">
+              <p className="italic font-serif font-extrabold text-sm leading-relaxed text-slate-800">
                 {QUIZ_QUESTIONS[currentQuizIndex].unveiledText}
               </p>
             </div>
@@ -334,14 +334,14 @@ export default function FallacyGuide({ themeId }: FallacyGuideProps) {
                     key={fallacy.id}
                     disabled={quizAnswer !== null}
                     onClick={() => handleQuizAnswer(fallacy.id)}
-                    className={`w-full text-left p-3 rounded-lg border text-xs font-semibold flex justify-between items-center transition-all ${btnColor}`}
+                    className={`w-full text-left p-3.5 rounded-lg border text-sm font-semibold flex justify-between items-center transition-all ${btnColor}`}
                   >
                     <span>{fallacy.icon} {fallacy.name}</span>
                     {quizAnswer && isCorrectAnswer && (
                       <CheckCircle className="w-4 h-4 text-green-600" />
                     )}
                     {quizAnswer && isSelected && !isCorrectAnswer && (
-                      <AlertTriangle className="w-4 h-4 text-red-600" />
+                      <AlertTriangle className="w-4 h-4 text-red-650" />
                     )}
                   </button>
                 );
@@ -355,9 +355,9 @@ export default function FallacyGuide({ themeId }: FallacyGuideProps) {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="mt-4 p-3 bg-slate-100/30 rounded-lg border border-slate-205 text-xs whitespace-pre-line leading-relaxed text-indigo-200"
+                  className="mt-4 p-3.5 bg-slate-100/30 rounded-lg border border-slate-205 text-sm whitespace-pre-line leading-relaxed text-slate-705 font-medium"
                 >
-                  <p className={isDark ? "text-amber-400" : "text-emerald-800"}>{quizFeedback}</p>
+                  <p className={isDark ? "text-amber-400 font-bold" : "text-emerald-800 font-bold"}>{quizFeedback}</p>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -367,7 +367,7 @@ export default function FallacyGuide({ themeId }: FallacyGuideProps) {
             <button
               id="next-quiz-btn"
               onClick={nextQuiz}
-              className={`flex items-center gap-1 text-xs font-bold uppercase px-3 py-1.5 rounded transition-all cursor-pointer ${
+              className={`flex items-center gap-1.5 text-sm font-extrabold uppercase px-4 py-2 rounded transition-all cursor-pointer ${
                 isDark 
                   ? "bg-slate-800 hover:bg-slate-705 text-amber-400 hover:text-amber-300" 
                   : "bg-amber-50 hover:bg-amber-100/80 text-amber-700 hover:text-amber-800"
