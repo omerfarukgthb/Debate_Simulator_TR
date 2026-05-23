@@ -50,7 +50,7 @@ app.post("/api/debate/evaluate", async (req, res) => {
     const ai = getAIClient();
     
     const systemPrompt = `Sen mükemmel bir münazara koçu ve aynı zamanda adil bir münazara jüri üyesisin. 
-Görevin, ortaokul düzeyindeki (10-14 yaş) öğrencilerin sunduğu argümanları değerlendirmektir.
+Görevin, öğrencilerin sunduğu argümanları değerlendirmektir.
 Dil tamamen Türkçe ve üslup bir yandan "Öğretmen Şefkatiyle" teşvik edici, sıcak, anlaşılır olmalı; diğer yandan "Jüri Ciddiyetiyle" nesnel, yapıcı eleştiriler barındırmalı ve gerçekçi olmalıdır.
 
 Öğrenciye bir argümanın temel yapısı olan İDK (İddia, Gerekçe, Kanıt) modelini öğretmelisin.
